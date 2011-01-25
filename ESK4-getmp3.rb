@@ -13,5 +13,10 @@ t3.each do |v|
 end
 
 t4 = t2.body.scan(/<a href='(http:\/\/[\.\w\d\/\-\_]+\.html)'/).uniq
-findstr = t.get(t4[1][0])
-puts findstr.search('//div[@class="copy"]/p/text() | //div[@class="copy"]/p/strong/text()')
+
+i=0
+t4.map do |v| 
+	tmp = t.get(v[0]).search('//div[@class="copy"]/p/text() | //div[@class="copy"]/p/strong/text()')
+	open(file_name[i]+"_script.txt","w") {|f| f.puts(tmp)}
+	i += 1
+end
