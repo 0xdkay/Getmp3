@@ -13,3 +13,6 @@ t3.each do |v|
 end
 
 t4 = t2.body.scan(/<a href='(http:\/\/[\.\w\d\/\-\_]+\.html)'/).uniq
+
+a = Mechanize.new
+a.get(i).search(':text()')
