@@ -13,6 +13,5 @@ t3.each do |v|
 end
 
 t4 = t2.body.scan(/<a href='(http:\/\/[\.\w\d\/\-\_]+\.html)'/).uniq
-
-a = Mechanize.new
-a.get(i).search(':text()')
+findstr = t.get(t4[1][0])
+puts findstr.search('//div[@class="copy"]/p/text() | //div[@class="copy"]/p/strong/text()')
